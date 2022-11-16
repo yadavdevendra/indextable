@@ -33,12 +33,8 @@ function Home() {
     const { selectedResources, allResourcesSelected, handleSelectionChange } =
         useIndexResourceState(customers);
 
-    console.log(selectedResources.length === customers.length)
-    useEffect(() => {
-        if (selectedResources.length === customers.length) {
-            setButtonshow(true)
-        }
-    }, [selectedResources])
+    // console.log(selectedResources.length === customers.length) outpute is true/false
+  
 
     const rowMarkup = customers.map(
         ({ id, name, location, orders, amountSpent }, index) => (
@@ -71,6 +67,13 @@ function Home() {
         setNewdata(customers)
         setOpenmodel(true)
     }
+    useEffect(() => {
+        if (selectedResources.length === customers.length) {
+            setButtonshow(true)
+        }else{
+            setButtonshow(false)
+        }
+    }, [selectedResources])
     // console.log("Data", data);
     // console.log("rowMarkup", rowMarkup);
     return (
