@@ -83,7 +83,7 @@ function Home() {
             >
                 <Modal.Section>
                     <TextContainer>
-                        <Card title="name"><Text>{newdata[0]?.name},{newdata[1]?.name}</Text>  </Card>
+                        <Card title="Name"><Text>{newdata[0]?.name},{newdata[1]?.name}</Text>  </Card>
                         <Card title="Location" ><Text >{newdata[0]?.location},{newdata[1]?.location}</Text></Card>
                         <Card title="Orders"><Text >{newdata[0]?.orders},{newdata[1]?.orders}</Text></Card>
                         <Card title="AmountSpent" ><Text >{newdata[0]?.amountSpent},{newdata[1]?.amountSpent}</Text></Card>
