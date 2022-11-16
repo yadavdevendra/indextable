@@ -57,7 +57,8 @@ function Home() {
                 <IndexTable.Cell>{location}</IndexTable.Cell>
                 <IndexTable.Cell>{orders}</IndexTable.Cell>
                 <IndexTable.Cell>{amountSpent}</IndexTable.Cell>
-                <IndexTable.Cell> <Button onClick={() => {
+                <IndexTable.Cell> <Button onClick={(e) => {
+                    e.stopPropagation()
                     setData({ id, name, location, orders, amountSpent })
                     setActive(true)
                 }}>View</Button></IndexTable.Cell>
