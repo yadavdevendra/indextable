@@ -83,12 +83,11 @@ function Home() {
             >
                 <Modal.Section>
                     <TextContainer>
-                        <Card>
-                            <Text>Name:{newdata[0]?.name},{newdata[1]?.name}</Text>
-                            <Text>Location:{newdata[0]?.location},{newdata[1]?.location}</Text>
-                            <Text>Orders:{newdata[0]?.orders},{newdata[1]?.orders}</Text>
-                            <Text>AmountSpent:{newdata[0]?.amountSpent},{newdata[1]?.amountSpent}</Text>
-                        </Card>
+                        <Card title="name"><Text>{newdata[0]?.name},{newdata[1]?.name}</Text>  </Card>
+                        <Card title="Location" ><Text >{newdata[0]?.location},{newdata[1]?.location}</Text></Card>
+                        <Card title="Orders"><Text >{newdata[0]?.orders},{newdata[1]?.orders}</Text></Card>
+                        <Card title="AmountSpent" ><Text >{newdata[0]?.amountSpent},{newdata[1]?.amountSpent}</Text></Card>
+
                     </TextContainer>
                 </Modal.Section>
             </Modal>
