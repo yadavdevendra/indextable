@@ -1,4 +1,4 @@
-import { IndexTable, Card, useIndexResourceState, Text, Button, Modal, TextContainer } from '@shopify/polaris';
+import { IndexTable, Card, useIndexResourceState, Text, Button, Modal, TextContainer, Page } from '@shopify/polaris';
 import React, { useEffect, useState } from 'react';
 
 function Home() {
@@ -71,11 +71,12 @@ function Home() {
         setNewdata(customers)
         setOpenmodel(true)
     }
-    console.log("Data", data);
+    // console.log("Data", data);
     // console.log("rowMarkup", rowMarkup);
     return (
+        <Page fullWidth>
         <Card>
-            {buttonshow && <Button onClick={handlechange}>View All</Button>}
+            {buttonshow && <div className='btn'><Button onClick={handlechange}>View All</Button></div>}
             <Modal
                 open={openmodel}
                 onClose={() => setOpenmodel(false)}
@@ -126,10 +127,8 @@ function Home() {
                     </TextContainer>
                 </Modal.Section>
             </Modal>
-
-
-
         </Card>
+        </Page>
     );
 }
 
