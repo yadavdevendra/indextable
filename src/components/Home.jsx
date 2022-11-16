@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 function Home() {
     const [data, setData] = useState([])
     const [active, setActive] = useState(false)
-    // const [openmodel,setOpenmodel] = useState(false)
+    const [buttonshow, setButtonshow] = useState(false)
+    const [openmodel, setOpenmodel] = useState(false)
     const customers = [
         {
             id: '3411',
@@ -33,10 +34,10 @@ function Home() {
 
     console.log(selectedResources.length === customers.length)
     useEffect(() => {
-        if (selectedResources.length === customers.length){
-            setActive(true)
+        if (selectedResources.length === customers.length) {
+            setButtonshow(true)
         }
-        }, [selectedResources])
+    }, [selectedResources])
 
     const rowMarkup = customers.map(
         ({ id, name, location, orders, amountSpent }, index) => (
@@ -62,10 +63,31 @@ function Home() {
             </IndexTable.Row>
         ),
     );
+    function handlechange() {
+        setOpenmodel(true)
+    }
     console.log("Data", data);
-    console.log("rowMarkup",rowMarkup);
+    console.log("rowMarkup", rowMarkup);
     return (
         <Card>
+            {buttonshow && <Button onClick={handlechange}>View All</Button>}
+            <Modal
+                open={openmodel}
+                onClose={() => setOpenmodel(false)}
+                title="View User Data"
+            >
+                <Modal.Section>
+                    <TextContainer>
+                        <Card>
+                            <Text>ID:{data.id}</Text>
+                            <Text>Name:{data.name}</Text>
+                            <Text>Location:{data.location}</Text>
+                            <Text>Orders:{data.orders}</Text>
+                            <Text>AmountSpent:{data.amountSpent}</Text>
+                        </Card>
+                    </TextContainer>
+                </Modal.Section>
+            </Modal>
             <IndexTable
                 resourceName={resourceName}
                 itemCount={customers.length}
@@ -100,23 +122,7 @@ function Home() {
                     </TextContainer>
                 </Modal.Section>
             </Modal>
-        {/*  <Modal
-            open={openmodel}
-            onClose={() => setOpenmodel(false)}
-            title="View User Data"
-        >
-            <Modal.Section>
-                <TextContainer>
-                    <Card>
-                        <Text>ID:{data.id}</Text>
-                        <Text>Name:{data.name}</Text>
-                        <Text>Location:{data.location}</Text>
-                        <Text>Orders:{data.orders}</Text>
-                        <Text>AmountSpent:{data.amountSpent}</Text>
-                    </Card>
-                </TextContainer>
-            </Modal.Section>
-            </Modal>*/}
+
 
 
         </Card>
