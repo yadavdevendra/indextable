@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 function Home() {
     const [data, setData] = useState([])
+    const [newdata, setNewdata] = useState([])
     const [active, setActive] = useState(false)
     const [buttonshow, setButtonshow] = useState(false)
     const [openmodel, setOpenmodel] = useState(false)
@@ -65,7 +66,7 @@ function Home() {
     );
     function handlechange() {
 
-        setData(customers)
+        setNewdata(customers)
         setOpenmodel(true)
     }
     console.log("Data", data);
@@ -79,7 +80,7 @@ function Home() {
                 title="View User Data"
             >
                 <Modal.Section>
-                    {data.map((item) => {
+                    {newdata?.map((item) => {
                         return (
                 
                                 <TextContainer key={item.id}>
