@@ -64,10 +64,12 @@ function Home() {
         ),
     );
     function handlechange() {
+
+        setData(customers)
         setOpenmodel(true)
     }
     console.log("Data", data);
-    console.log("rowMarkup", rowMarkup);
+    // console.log("rowMarkup", rowMarkup);
     return (
         <Card>
             {buttonshow && <Button onClick={handlechange}>View All</Button>}
@@ -77,15 +79,21 @@ function Home() {
                 title="View User Data"
             >
                 <Modal.Section>
-                    <TextContainer>
-                        <Card>
-                            <Text>ID:{data.id}</Text>
-                            <Text>Name:{data.name}</Text>
-                            <Text>Location:{data.location}</Text>
-                            <Text>Orders:{data.orders}</Text>
-                            <Text>AmountSpent:{data.amountSpent}</Text>
-                        </Card>
-                    </TextContainer>
+                    {data.map((item) => {
+                        return (
+                
+                                <TextContainer key={item.id}>
+                                    <Card>
+                                        <Text>ID:{item.id}</Text>
+                                        <Text>Name:{item.name}</Text>
+                                        <Text>Location:{item.location}</Text>
+                                        <Text>Orders:{item.orders}</Text>
+                                        <Text>AmountSpent:{item.amountSpent}</Text>
+                                    </Card>
+                                </TextContainer>
+
+                        )
+                    })}
                 </Modal.Section>
             </Modal>
             <IndexTable
@@ -106,6 +114,7 @@ function Home() {
                 {rowMarkup}
             </IndexTable>
             <Modal
+                small
                 open={active}
                 onClose={() => setActive(false)}
                 title="View User Data"
