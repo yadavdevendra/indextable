@@ -65,6 +65,7 @@ function Home() {
             </IndexTable.Row>
         ),
     );
+
     function handlechange() {
 
         setNewdata(customers)
@@ -81,21 +82,15 @@ function Home() {
                 title="View User Data"
             >
                 <Modal.Section>
-                    {newdata?.map((item) => {
-                        return (
-                
-                                <TextContainer key={item.id}>
-                                    <Card>
-                                        <Text>ID:{item.id}</Text>
-                                        <Text>Name:{item.name}</Text>
-                                        <Text>Location:{item.location}</Text>
-                                        <Text>Orders:{item.orders}</Text>
-                                        <Text>AmountSpent:{item.amountSpent}</Text>
-                                    </Card>
-                                </TextContainer>
-
-                        )
-                    })}
+                    <TextContainer>
+                        <Card>
+                            <Text>ID:{newdata[0].id},{newdata[1].id}</Text>
+                            <Text>Name:{newdata[0].name},{newdata[1].name}</Text>
+                            <Text>Location:{newdata[0].location},{newdata[1].location}</Text>
+                            <Text>Orders:{newdata[0].orders},{newdata[1].orders}</Text>
+                            <Text>AmountSpent:{newdata[0].amountSpent},{newdata[1].amountSpent}</Text>
+                        </Card>
+                    </TextContainer>
                 </Modal.Section>
             </Modal>
             <IndexTable
